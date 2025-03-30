@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+.lalezar-text {
+  font-family: var(--font-lalezar);
+}
