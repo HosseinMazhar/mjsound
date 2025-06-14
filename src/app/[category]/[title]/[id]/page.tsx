@@ -8,7 +8,7 @@ interface ProductDetailPageProps {
   };
 }
 
-export default function ProductDetailPage({ params }: ProductDetailPageProps) {
+export default async function ProductDetailPage({ params }: ProductDetailPageProps) {
   const { id } = params;
   const product = products.find((p) => String(p.id) === id);
 
