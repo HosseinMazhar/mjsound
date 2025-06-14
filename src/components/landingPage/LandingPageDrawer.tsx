@@ -22,43 +22,43 @@ export default function LandingPageDrawer() {
         </h2>
         <div className="w-full flex flex-col items-right gap-5">
           <Link
-            href={"/"}
+            href={"/products?page=1&category=آمپلی فایر"}
             className="font-lalezar text-white text-xl text-right"
           >
             آمپلی فایر
           </Link>
           <Link
-            href={"/"}
+            href={"/products?page=1&category=باند"}
             className="font-lalezar text-white text-xl text-right"
           >
             باند، اسپیکر و بلندگو
           </Link>
           <Link
-            href={"/"}
+            href={"/products?page=1&category=میکروفن"}
             className="font-lalezar text-white text-xl text-right"
           >
             میکروفن
           </Link>
           <Link
-            href={"/"}
+            href={"/products?page=1&category=میکسر"}
             className="font-lalezar text-white text-xl text-right"
           >
             میکسر
           </Link>
           <Link
-            href={"/"}
+            href={"/products?page=1&category=پاورمیکسر"}
             className="font-lalezar text-white text-xl text-right"
           >
             پاور میکسر
           </Link>
           <Link
-            href={"/"}
+            href={"/products?page=1&category=فیش آلات"}
             className="font-lalezar text-white text-xl text-right"
           >
             فیش آلات و اتصالات
           </Link>
           <Link
-            href={"/"}
+            href={"/products?page=1&category=کابل"}
             className="font-lalezar text-white text-xl text-right"
           >
             کابل

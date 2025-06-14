@@ -3,7 +3,7 @@ import MoharamProducts from "./MoharamProducts";
 
 const MoharamContainer = () => {
   return (
-    <div className="w-full bg-neutral-950 h-[650px] lg:h-[500px] rounded-2xl py-8 px-4 flex-col justify-center lg:flex-row flex md:justify-between items-center gap-5">
+    <div className="w-full bg-neutral-950 border border-yellow-500 h-[650px] lg:h-[500px] rounded-2xl py-8 px-4 flex-col justify-center lg:flex-row flex md:justify-between items-center gap-5">
       <Image
         src={"/landingPage/yahossein.png"}
         width={400}

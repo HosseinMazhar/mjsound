@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef } from "react";
 import Header from "../common/Header";
 import ProductCard from "../common/ProductCard";
+import products from "@/app/datas/products.json";
 
 export default function DiscountsContainer() {
   const scrollRef = useRef<HTMLDivElement | null>(null);
@@ -55,9 +56,24 @@ export default function DiscountsContainer() {
           ref={scrollRef}
           className="w-full flex justify-start items-center gap-4 max-w-full overflow-x-auto scrollbar-hide"
         >
-          {Array.from({ length: 10 }).map((_, index) => (
-            <ProductCard key={index} />
-          ))}
+          {products
+            .filter(
+              (product) =>
+                product.priceAfterDiscount !== product.priceBeforeDiscount
+            )
+            .map((product) => (
+              <ProductCard
+                key={product.id}
+                id={product.id}
+                title={product.title}
+                priceAfterDiscount={product.priceAfterDiscount}
+                priceBeforeDiscount={product.priceBeforeDiscount}
+                imageURL={
+                  product.imageURL.length ? product.imageURL[0] : undefined
+                }
+                category={product.category}
+              />
+            ))}
         </div>
         <button
           className="absolute -right-2 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full"

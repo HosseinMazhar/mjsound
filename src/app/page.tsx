@@ -1,5 +1,3 @@
-"use client";
-
 import ArchiveContainer from "@/components/landingPage/ArchiveContainer";
 import BlogContainer from "@/components/landingPage/BlogContainer";
 import DiscountsContainer from "@/components/landingPage/DiscountsContainer";
