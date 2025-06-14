@@ -1,14 +1,16 @@
 import products from "@/app/datas/products.json";
-  import BuyButton from "@/components/productById/BuyButton";
+import BuyButton from "@/components/productById/BuyButton";
 import PictureAlbum from "@/components/productById/PictureAlbum";
 
-interface ProductDetailPageProps {
+type PageProps = {
   params: {
     id: string;
+    title: string;
+    category: string;
   };
-}
+};
 
-export default async function ProductDetailPage({ params }: ProductDetailPageProps) {
+export default function ProductDetailPage({ params }: PageProps) {
   const { id } = params;
   const product = products.find((p) => String(p.id) === id);
 
@@ -35,27 +37,25 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
           <p className="px-3 py-2 rounded bg-amber-700 text-white font-lalezar text-sm mt-4 mb-8">
             {product.category}
           </p>
-          {product.details.map((detail, index) => {
-            return (
-              <div
-                key={index}
-                className="flex justify-start items-start gap-3 mb-2"
-              >
-                <p className="text-yellow-500 font-lalezar">{detail.key}:</p>
-                <p className="text-white font-lalezar">{detail.value}</p>
-              </div>
-            );
-          })}
+          {product.details.map((detail, index) => (
+            <div
+              key={index}
+              className="flex justify-start items-start gap-3 mb-2"
+            >
+              <p className="text-yellow-500 font-lalezar">{detail.key}:</p>
+              <p className="text-white font-lalezar">{detail.value}</p>
+            </div>
+          ))}
           <p className="text-white font-lalezar text-lg mt-8">
             {product.description}
           </p>
           {product.priceBeforeDiscount !== product.priceAfterDiscount && (
             <p className="w-full mt-12 text-left font-lalezar line-through text-white text-xl">
-              {product.priceBeforeDiscount?.toLocaleString()} تومان{" "}
+              {product.priceBeforeDiscount?.toLocaleString()} تومان
             </p>
           )}
           <p className="w-full mt-4 text-left font-lalezar text-white text-3xl">
-            {product.priceBeforeDiscount?.toLocaleString()} تومان{" "}
+            {product.priceAfterDiscount?.toLocaleString()} تومان
           </p>
           <div className="w-full mt-10 flex justify-end items-center">
             <BuyButton product={product} />
