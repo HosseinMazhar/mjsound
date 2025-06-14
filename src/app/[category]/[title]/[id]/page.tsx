@@ -1,17 +1,21 @@
+'use client';
+
+import React from "react";
+import { use } from "react"; // Required for unwrapping the Promise
 import products from "@/app/datas/products.json";
 import BuyButton from "@/components/productById/BuyButton";
 import PictureAlbum from "@/components/productById/PictureAlbum";
 
-type PageProps = {
-  params: {
+interface ProductDetailPageProps {
+  params: Promise<{
     id: string;
     title: string;
     category: string;
-  };
-};
+  }>;
+}
 
-export default function ProductDetailPage({ params }: PageProps) {
-  const { id } = params;
+export default function ProductDetailPage({ params }: ProductDetailPageProps) {
+  const { id } = use(params);
   const product = products.find((p) => String(p.id) === id);
 
   if (!product) {
@@ -38,10 +42,7 @@ export default function ProductDetailPage({ params }: PageProps) {
             {product.category}
           </p>
           {product.details.map((detail, index) => (
-            <div
-              key={index}
-              className="flex justify-start items-start gap-3 mb-2"
-            >
+            <div key={index} className="flex justify-start items-start gap-3 mb-2">
               <p className="text-yellow-500 font-lalezar">{detail.key}:</p>
               <p className="text-white font-lalezar">{detail.value}</p>
             </div>
